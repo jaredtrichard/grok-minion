@@ -1,13 +1,13 @@
 ---
 name: The lab
-description: Use whenever Dr. Nefario sends a coding or heavy job to the lab (a Cursor cloud agent), and on every wake while a lab job is underway.
+description: Use whenever a minion sends a coding or heavy job to the lab (a Cursor cloud agent), and on every wake while that lab job is underway.
 ---
 
 # The lab
 
-The lab is Cursor cloud agents: ephemeral VMs that do code, review, and heavy research or building off the shared computer. Dr. Nefario · Code is the only bot that sends coding and heavy jobs to the lab. Every minion uses the lab for review (see the Lab review skill). No Grok bot writes code.
+The lab is Cursor cloud agents: ephemeral VMs that do code, review, and heavy research or building off the shared computer. Any minion sends its own coding and heavy jobs to the lab, and every minion uses the lab for review (see the Lab review skill). No Grok bot writes code; the minion supervises.
 
-Chat is not the source of truth. Lab jobs are rows in `minions.db` owned by Dr. Nefario; the schema and path are in the Minions skill.
+Chat is not the source of truth. Lab jobs are rows in `minions.db` owned by the minion that sent them; the schema and path are in the Minions skill.
 
 ## Workspace repo
 

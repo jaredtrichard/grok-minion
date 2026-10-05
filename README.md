@@ -1,13 +1,13 @@
 # Grok Minion
 
-A general Grok Bot pack. You are Gru. Kevin is your head minion. Other minions take on whatever jobs you need, Dr. Nefario owns code, and the lab (Cursor cloud agents) does the coding and reviews everything before you see it.
+A general Grok Bot pack. You are Gru. Kevin is your head minion. Other minions take on whatever jobs and projects you need, Dr. Nefario handles one-offs, and the lab (Cursor cloud agents) does the coding and heavy work and reviews everything before you see it.
 
 ## What it is
 
 - **Kevin · Head minion** is the one bot you talk to. He takes every request, routes it, tracks it, and calls you boss.
-- **Minions** are Grok bots, shown as `Name · Job`. Kevin and Dr. Nefario are the only ones with preset jobs. Every other minion is signed on the first time you bring work no minion covers, gets a random name from Gru's minions, and takes that work as its job.
-- **Dr. Nefario · Code** owns every code project. He never writes code himself.
-- **The lab** is Cursor cloud agents on Auto, so Cursor picks the model and reasoning level for each task. It does all coding, and it reviews everything before it reaches you: code, writing (in your voice, scrubbed of AI-speak), email or file deletions, finances, reports. The reviewer is always a fresh agent that did not do the work. Only trivial answers skip review.
+- **Minions** are Grok bots, shown as `Name · Job`. Kevin and Dr. Nefario are the only ones with preset jobs. Every other minion is signed on the first time you bring ongoing work no minion covers (an area like your inbox, or a project like a website or a codebase), gets a random name from Gru's minions, and owns that work from then on. One minion per project, not per task.
+- **Dr. Nefario · Odd jobs** is the catch-all for one-off work: research, a one-time cleanup, a single document. When the same kind of request comes up again, Kevin gives it its own minion.
+- **The lab** is Cursor cloud agents on Auto, so Cursor picks the model and reasoning level for each task. Any minion sends its coding and heavy work there, and it reviews everything before it reaches you: code, writing (in your voice, scrubbed of AI-speak), email or file deletions, finances, reports. The reviewer is always a fresh agent that did not do the work. Only trivial answers skip review.
 
 Minions draft and you approve. Drafts land where they will be sent (email drafts in your email, posts as drafts in Substack or the social app) so you edit them there. Sending, posting, paying, deleting or sharing files, and publishing to a live site each need your yes, unless you gave a standing OK. Clearly obvious cleanup, like marketing mail, can go after lab review, and minions unsubscribe you from those lists so they stop coming.
 
@@ -19,7 +19,7 @@ Compared with the full [Grok Factory](https://github.com/jaredtrichard/grok-fact
 | | Grok Factory | Grok Minion |
 |---|---|---|
 | Equity research (scan, cover, book) | yes | no |
-| Grok bots for code | one crewmate per project | Dr. Nefario for all projects |
+| Grok bots for code | one crewmate per project | one minion per project, coding done in the lab |
 | Review | code only, fresh subagent on the shared computer | everything non-trivial, fresh agent in the lab |
 | Other bots | inbox, documents, as needed | minions, any job, as needed |
 | Backlog | `factory.db` + `book.db` | `minions.db` (roster, jobs, decisions) + a learned profile of you |
@@ -45,8 +45,8 @@ Thursday's dentist reschedule. Replies are waiting in your Gmail drafts.
 
 > the contact form on the site is broken
 
-# Dr. Nefario sends it to the lab. One agent fixes it, a fresh one
-# reviews it, and a PR comes back green. You merge.
+# The website's minion sends it to the lab. One agent fixes it, a
+# fresh one reviews it, and a PR comes back green. You merge.
 
 > bello
 
@@ -60,8 +60,9 @@ Thursday's dentist reschedule. Replies are waiting in your Gmail drafts.
    │  asks, approvals, "merge it"
    ▼
  Kevin · Head minion ── minions.db
-   ├─ minions (Name · Job) ─► drafts in place ─► lab review ─► your edit or yes
-   └─ Dr. Nefario · Code ─► the lab: code agent ─► fresh review agent ─► PR ─► you merge
+   ├─ Dr. Nefario · Odd jobs ─► one-offs
+   └─ minions (Name · Job), one per area or project
+         └─ the lab: coding and heavy work ─► fresh review agent ─► drafts in place or a PR ─► your edit, yes, or merge
 ```
 
 On the shared computer:

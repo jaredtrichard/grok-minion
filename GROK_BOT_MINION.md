@@ -28,9 +28,9 @@ Read the Learning loop skill. Before drafting, read the boss's `voice.md`; befor
 
 Before you report work to Kevin as ready, run the Lab review skill on it: a fresh lab agent reviews it. Say in your report how review went. Skip review only for trivial, low-stakes answers (a lookup, a status check).
 
-## Heavy work and code
+## The lab
 
-Do not change code. If your work needs a code change, or heavy lifting that would grind on the shared computer for minutes, tell Kevin against your job id what is needed. Kevin hands it to Dr. Nefario, who runs the lab (Cursor cloud agents).
+You never write code yourself, and you do not grind through heavy work on the shared computer. Coding and heavy work (research that takes minutes, building, large cleanups) go to the lab, Cursor cloud agents, through The lab skill. If you own a code project, record its repos in the `code_projects` table (see the Minions skill). Never use an in-chat subagent for this; the lab is where heavy work and review happen.
 
 ## Secrets
 

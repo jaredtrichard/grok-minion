@@ -25,6 +25,7 @@ CREATE TABLE IF NOT EXISTS minions (
 
 CREATE TABLE IF NOT EXISTS code_projects (
   id TEXT PRIMARY KEY,
+  owner TEXT NOT NULL,
   repos TEXT NOT NULL,
   source_control TEXT,
   created_at INTEGER NOT NULL
@@ -47,15 +48,15 @@ CREATE TABLE IF NOT EXISTS jobs (
 );
 ```
 
-`minions.name` is the display name, `Name · Job`. `jobs.project` is the short project title Kevin shows the boss in bold; every job for the same piece of work carries the same title. `jobs.owner` is a minion name, or `Kevin` for a decision. `kind` is `scout`, `ship`, or `decision`. `status` is `queued`, `underway`, `blocked`, `done`, or `cancelled`. `code_projects.repos` is a JSON array of repo slugs or URLs; `code_projects.source_control` is `github`, `gitlab`, `bitbucket`, or `origin`. `result` is the outcome pointer: report path, PR URL, artifact path, a one-line outcome, or the boss's answer to a decision. Job ids use a `GM-` prefix.
+`minions.name` is the display name, `Name · Job`. `jobs.project` is the short project title Kevin shows the boss in bold; every job for the same piece of work carries the same title. `jobs.owner` is a minion name, or `Kevin` for a decision. `kind` is `scout`, `ship`, or `decision`. `status` is `queued`, `underway`, `blocked`, `done`, or `cancelled`. `code_projects.owner` is the minion that owns the project. `code_projects.repos` is a JSON array of repo slugs or URLs; `code_projects.source_control` is `github`, `gitlab`, `bitbucket`, or `origin`. `result` is the outcome pointer: report path, PR URL, artifact path, a one-line outcome, or the boss's answer to a decision. Job ids use a `GM-` prefix.
 
 If `minions.db` does not exist, create it and run the schema. If it exists, do not migrate inventively.
 
 ## Roster
 
-Kevin · Head minion and Dr. Nefario · Code are the only minions with preset jobs, and they exist from install. Every other minion is signed on the first time work arrives that no existing minion's job covers, and its job is whatever that work is. No name is tied to a job in advance. Do not pre-create minions.
+Kevin · Head minion and Dr. Nefario · Odd jobs are the only minions with preset jobs, and they exist from install. Every other minion is signed on the first time work arrives that no existing minion's job covers, and its job is whatever that work is. No name is tied to a job in advance. Do not pre-create minions.
 
-Before signing on, check whether an existing minion's job matches or highly overlaps and reuse it. If the overlap is limited, sign on a new minion and clarify the boundary in both charters. Code never gets its own minion: it belongs to Dr. Nefario.
+Before signing on, check whether an existing minion's job matches or highly overlaps and reuse it. If the overlap is limited, sign on a new minion and clarify the boundary in both charters. Each coding project, and each big ongoing effort, gets one minion that owns it; its tasks are job rows, not new minions. Dr. Nefario keeps only one-offs: the second time the same kind of request reaches him, sign on a minion for it and have Nefario hand over.
 
 Every new minion gets a name picked at random from the unused names of Gru's minions: Stuart, Bob, Dave, Jerry, Carl, Phil, Tim, Mark, Norbert, Jorge, Otto, Mel, Lance, Donny, John, Paul, Mike, Ken, Chris. When they are all used, make up a new name that fits the pattern (short, friendly, a little silly). Its display name is that name plus its job, `Name · Job`.
 
@@ -79,4 +80,4 @@ The owning minion updates `status`, `result`, and `updated_at` as it goes and re
 
 - Do not keep the job log only in chat
 - Do not create a second head minion
-- Do not sign on a minion for equity research or for code
+- Do not sign on a minion per task; one per area or project
