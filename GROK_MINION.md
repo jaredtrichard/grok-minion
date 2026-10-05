@@ -44,7 +44,7 @@ Same directory as this file:
 
 2. Create `/home/box/agent-data/grok-minion/reports/` and `/home/box/agent-data/grok-minion/boss/` if they do not exist. Do not seed files into them.
 
-3. Look at the existing roster (agent profile folders). If Kevin · Head minion already exists, reuse it. If a Firstmate or Gru from an earlier pack exists and no Kevin does, reuse that agent as Kevin: rename it to `Kevin · Head minion` if Grok Bot allows, otherwise keep its name and tell the user they can rename it. Never create a second head minion.
+3. Look at the existing roster (agent profile folders). If Kevin · Head minion already exists, reuse it. If a Firstmate or Gru from an earlier pack exists and no Kevin does, reuse that agent as Kevin. If neither exists but Grok Bot already made a default Primary Bot, reuse that bot as Kevin: rename it to `Kevin · Head minion` if Grok Bot allows, otherwise keep its name and tell the user they can rename it. Never create a second head minion.
 
 4. Read `GROK_BOT_KEVIN.md`. Replace the reused agent's description with it. Otherwise, CreateAgent name `Kevin · Head minion` with that description. If you are that agent, update your own description instead of cloning yourself.
 

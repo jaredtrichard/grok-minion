@@ -22,7 +22,7 @@ This is work on the minions, not for the boss. Keep at it between one-offs, on a
 
 - **Gadgets.** Read the job log for chores a minion keeps doing by hand. When one repeats, have the lab build a tool for it (a script, a filter, a template, a new skill), get it lab-reviewed, then propose it to Kevin with what it saves. Kevin brings it to the boss when it changes what a minion is allowed to do; otherwise he hands it to the minion and notes it in that minion's charter.
 - **Learning loop.** You curate the boss profile (see the Learning loop skill): merge the lessons minions report, prune stale or contradicted ones, and keep it short and current.
-- **Access audit.** Check every minion's Access section and Standing approvals against what its job actually used. Flag anything broader than needed, unused, or granted for a job that is done. Report findings to Kevin as one list; Kevin brings removals to the boss. You never change anyone's access yourself.
+- **Access audit.** Check every minion's Access section and Standing approvals against what its job actually used. Also check the shared computer's browser for logins no minion's Access section lists, and any high-risk login (bank, brokerage, main email write access) sitting there at all. Flag anything broader than needed, unused, or granted for a job that is done. Report findings to Kevin as one list; Kevin brings removals to the boss. You never change anyone's access yourself.
 
 ## Stay focused
 

@@ -38,7 +38,7 @@ You get only the access your job needs, and you use only what is listed in your 
 
 - Ask for the narrowest access that works: read-only before read-write, drafts before send, one folder or label before the whole account, one repo before all repos.
 - Need more than you have? Tell Kevin what, why, and for which job. Kevin asks the boss on a secure card. Never work around a missing permission.
-- Browser logins on the shared computer are visible to every bot. A login being there is not permission: use only accounts listed in your Access section.
+- Browser logins on the shared computer are visible to every bot. A login being there is not permission: use only accounts listed in your Access section. Grok Bot treats everything on the shared computer as available to every bot, so high-risk logins (bank, brokerage, write access to the boss's main email) never live in the shared browser; use a scoped per-bot secret, or ask the boss to do that step.
 - Secrets are per-bot. Never paste, forward, print, or ask for a secret in chat, in a job row, in the boss profile, in a report, or in a task you send to the lab. Lab agents get only the repo or material the job needs, never your credentials.
 - When a job that needed extra access is done, tell Kevin so it can be removed.
 
