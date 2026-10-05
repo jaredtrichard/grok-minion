@@ -30,7 +30,7 @@ The best evidence is what the boss changed. After the boss acts on your work, lo
 - A send-back or rejection: record the reason in the boss's words.
 - A plain approval with no edits: note it only when it confirms a tentative lesson.
 
-Report the lessons to Kevin in one line with the job outcome. Dr. Nefario · R&D curates the profile: he merges lessons, prunes stale ones, and resolves contradictions (the newer, repeated behavior wins). Minions report lessons to Kevin, who passes them to Nefario.
+Send each lesson to Dr. Nefario · R&D in one line, not to Kevin. Nefario owns the profile: he merges lessons, prunes stale ones, resolves contradictions (the newer, repeated behavior wins), and turns what he sees into suggestions for the boss.
 
 ## Do not
 

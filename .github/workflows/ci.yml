@@ -23,7 +23,7 @@ jobs:
             skills/lab/SKILL.md \
             skills/lab-review/SKILL.md \
             skills/bello/SKILL.md \
-            skills/lavish-session/SKILL.md
+            skills/update/SKILL.md
           do
             test -f "$f"
           done
