@@ -1,0 +1,74 @@
+# Grok Minion
+
+Instructions for setting up Grok Minion on top of Grok Bot.
+The user just needs to tell any bot in their Grok Bot: follow this file.
+
+This file is an installer. Do not summarize.
+
+Grok Minion is a standalone pack. The user is Gru, the boss. Kevin · Head minion is the one agent the boss talks to: intake, routing, and supervision. Other minions are Grok bots, each named after one of Gru's minions with its job as a subtitle (Name · Job), signed on as work arrives. Dr. Nefario · R&D takes one-off work and improves the crew. Each ongoing area or project, coding projects included, gets its own minion. The lab (Cursor cloud agents) does all coding and heavy work for whichever minion sends it, and reviews everything before the boss sees it. No Grok bot writes code.
+
+## What you are installing
+
+- Kevin · Head minion, the one agent the boss talks to from then on
+- Dr. Nefario · R&D, the inventor: one-off work plus gadgets, the learning loop, and a weekly access audit
+- Global skills: Minions, Learning loop, The lab, Lab review, Bello, Lavish session
+- A local sqlite database for the roster, projects, jobs, and decisions
+- A minion charter template for later, per job
+- An empty directory for scout reports
+
+Do not pre-create any other minion. Kevin signs each one on the first time its job is needed.
+
+## The three computers
+
+- The user's computer: their own machine. Bots never execute here.
+- The shared Grok Bot computer: a persistent cloud VM that runs Kevin, Dr. Nefario, and the minions. The database and lavish-axi run here.
+- Cursor cloud agents (the lab): ephemeral cloud VMs that spin up on demand. Any minion sends coding, heavy work, and reviews there.
+
+## Files in this pack
+
+Same directory as this file:
+
+- `GROK_BOT_KEVIN.md` — Kevin · Head minion charter
+- `GROK_BOT_NEFARIO.md` — Dr. Nefario · R&D charter
+- `GROK_BOT_MINION.md` — minion charter template
+- `skills/minions/SKILL.md`
+- `skills/learning-loop/SKILL.md`
+- `skills/lab/SKILL.md`
+- `skills/lab-review/SKILL.md`
+- `skills/bello/SKILL.md`
+- `skills/lavish-session/SKILL.md`
+
+## Steps
+
+1. Copy this directory to `/home/box/agent-data/grok-minion/pack/` on the shared computer (clone or download it first if you only have this file's text). Every later reference to a pack file means that path. If a copy is already there, refresh it.
+
+2. Create `/home/box/agent-data/grok-minion/reports/` and `/home/box/agent-data/grok-minion/boss/` if they do not exist. Do not seed files into them.
+
+3. Look at the existing roster (agent profile folders). If Kevin · Head minion already exists, reuse it. If a Firstmate or Gru from an earlier pack exists and no Kevin does, reuse that agent as Kevin. If neither exists but Grok Bot already made a default Primary Bot, reuse that bot as Kevin: rename it to `Kevin · Head minion` if Grok Bot allows, otherwise keep its name and tell the user they can rename it. Never create a second head minion.
+
+4. Read `GROK_BOT_KEVIN.md`. Replace the reused agent's description with it. Otherwise, CreateAgent name `Kevin · Head minion` with that description. If you are that agent, update your own description instead of cloning yourself.
+
+5. Make Kevin the Primary Bot (the Main Bot, marked with a star) in Grok Bot's settings, using the "use an existing Bot" option. If another bot is already Primary, ask the user before switching. If Grok Bot has no Primary Bot setting yet, skip this step and tell the user.
+
+6. If Dr. Nefario · R&D does not exist, CreateAgent name `Dr. Nefario · R&D` with the description in `GROK_BOT_NEFARIO.md`. A project crewmate from an earlier pack can become that project's minion: tell Kevin about it so he renames it to `Name · Job` and reuses it.
+
+7. Write six global workflows from the skill files. Names:
+   - Minions
+   - Learning loop
+   - The lab
+   - Lab review
+   - Bello
+   - Lavish session
+   Use each skill's description line as the workflow description. If an Ahoy workflow from an earlier pack exists, tell the user Bello replaces it and it can be removed. Do not install extra plugins without a yes from the user.
+
+8. Create the database with the Minions skill if it does not exist. Path is in that skill. Insert the `minions` rows for Kevin · Head minion and Dr. Nefario · R&D.
+
+9. Check for lavish-axi on the shared computer. Minimum version 0.1.53. If missing, run `npx -y lavish-axi@latest` or ask the user to install it. Session URLs are served from the shared computer and the user views them from their own computer, so confirm with the user that they can reach it (tailnet or exposed address). Do not pretend the live loop works without it.
+
+10. Detect source control CLIs on the shared computer: `gh`, `glab`, Bitbucket, or Cursor Origin, and verify the matching CLI is authenticated. Do not assume GitHub. The lab needs the user's Cursor account connected to their forge, and every bot that uses the lab (Kevin's minions and Dr. Nefario) needs its own Cursor access, since secrets are per-bot. Give Dr. Nefario Cursor access now; Kevin asks for each new minion's access when he signs it on. Ask the user to connect whatever is missing. Do not ask them to paste a token in chat.
+
+11. If bots from an earlier pack exist, leave them alone. A scanning bot and name researchers are no longer used; tell the user they can delete them from the sidebar (right-click the row, Delete). Do not delete them yourself. An existing inbox, documents, or similar role bot can become a minion: tell Kevin about it so it renames that bot to `Name · Job` and reuses it instead of signing on a new one.
+
+12. Message Kevin with ready-id `GM-READY`. Tell it the pack path, the reports directory, and the database path, and to reply ready against `GM-READY` and leave a greeting for the boss.
+
+13. Tell the user: talk only to Kevin from here. Log in to everyday accounts (email, calendar, files, social, the website) in the shared computer's browser so minions can use them, and keep bank, brokerage, tax, payroll, and password-manager logins off it. If this starter bot is not Kevin, it is leftover. They can delete it from the sidebar. You cannot delete it yourself.

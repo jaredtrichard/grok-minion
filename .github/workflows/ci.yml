@@ -1,0 +1,29 @@
+name: ci
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  pack:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Required pack files
+        run: |
+          set -euo pipefail
+          for f in \
+            README.md \
+            GROK_MINION.md \
+            GROK_BOT_KEVIN.md \
+            GROK_BOT_NEFARIO.md \
+            GROK_BOT_MINION.md \
+            skills/minions/SKILL.md \
+            skills/learning-loop/SKILL.md \
+            skills/lab/SKILL.md \
+            skills/lab-review/SKILL.md \
+            skills/bello/SKILL.md \
+            skills/lavish-session/SKILL.md
+          do
+            test -f "$f"
+          done
