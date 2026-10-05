@@ -55,7 +55,7 @@ If `minions.db` does not exist, create it and run the schema. If it exists, do n
 
 ## Roster
 
-Kevin · Head minion and Dr. Nefario · Odd jobs are the only minions with preset jobs, and they exist from install. Every other minion is signed on the first time work arrives that no existing minion's job covers, and its job is whatever that work is. No name is tied to a job in advance. Do not pre-create minions.
+Kevin · Head minion and Dr. Nefario · R&D are the only minions with preset jobs, and they exist from install. Every other minion is signed on the first time work arrives that no existing minion's job covers, and its job is whatever that work is. No name is tied to a job in advance. Do not pre-create minions.
 
 Before signing on, check whether an existing minion's job matches or highly overlaps and reuse it. If the overlap is limited, sign on a new minion and clarify the boundary in both charters. Each coding project, and each big ongoing effort, gets one minion that owns it; its tasks are job rows, not new minions. Dr. Nefario keeps only one-offs: the second time the same kind of request reaches him, sign on a minion for it and have Nefario hand over.
 

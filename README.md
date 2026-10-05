@@ -6,7 +6,7 @@ A general Grok Bot pack. You are Gru. Kevin is your head minion. Other minions t
 
 - **Kevin · Head minion** is the one bot you talk to. He takes every request, routes it, tracks it, and calls you boss.
 - **Minions** are Grok bots, shown as `Name · Job`. Kevin and Dr. Nefario are the only ones with preset jobs. Every other minion is signed on the first time you bring ongoing work no minion covers (an area like your inbox, or a project like a website or a codebase), gets a random name from Gru's minions, and owns that work from then on. One minion per project, not per task.
-- **Dr. Nefario · Odd jobs** is the catch-all for one-off work: research, a one-time cleanup, a single document. When the same kind of request comes up again, Kevin gives it its own minion.
+- **Dr. Nefario · R&D** is the inventor. He takes one-off work (research, a one-time cleanup, a single document) and improves the crew: he has the lab build tools for chores minions keep repeating, curates the learning loop, and audits who has access to what each week. When the same kind of request comes up again, Kevin gives it its own minion.
 - **The lab** is Cursor cloud agents on Auto, so Cursor picks the model and reasoning level for each task. Any minion sends its coding and heavy work there, and it reviews everything before it reaches you: code, writing (in your voice, scrubbed of AI-speak), email or file deletions, finances, reports. The reviewer is always a fresh agent that did not do the work. Only trivial answers skip review.
 
 Minions draft and you approve. Drafts land where they will be sent (email drafts in your email, posts as drafts in Substack or the social app) so you edit them there. Sending, posting, paying, deleting or sharing files, and publishing to a live site each need your yes, unless you gave a standing OK. Clearly obvious cleanup, like marketing mail, can go after lab review, and minions unsubscribe you from those lists so they stop coming.
@@ -60,7 +60,7 @@ Thursday's dentist reschedule. Replies are waiting in your Gmail drafts.
    │  asks, approvals, "merge it"
    ▼
  Kevin · Head minion ── minions.db
-   ├─ Dr. Nefario · Odd jobs ─► one-offs
+   ├─ Dr. Nefario · R&D ─► one-offs
    └─ minions (Name · Job), one per area or project
          └─ the lab: coding and heavy work ─► fresh review agent ─► drafts in place or a PR ─► your edit, yes, or merge
 ```

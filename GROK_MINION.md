@@ -5,12 +5,12 @@ The user just needs to tell any bot in their Grok Bot: follow this file.
 
 This file is an installer. Do not summarize.
 
-Grok Minion is a standalone pack. The user is Gru, the boss. Kevin · Head minion is the one agent the boss talks to: intake, routing, and supervision. Other minions are Grok bots, each named after one of Gru's minions with its job as a subtitle (Name · Job), signed on as work arrives. Dr. Nefario · Odd jobs is the catch-all for one-off work. Each ongoing area or project, coding projects included, gets its own minion. The lab (Cursor cloud agents) does all coding and heavy work for whichever minion sends it, and reviews everything before the boss sees it. No Grok bot writes code.
+Grok Minion is a standalone pack. The user is Gru, the boss. Kevin · Head minion is the one agent the boss talks to: intake, routing, and supervision. Other minions are Grok bots, each named after one of Gru's minions with its job as a subtitle (Name · Job), signed on as work arrives. Dr. Nefario · R&D takes one-off work and improves the crew. Each ongoing area or project, coding projects included, gets its own minion. The lab (Cursor cloud agents) does all coding and heavy work for whichever minion sends it, and reviews everything before the boss sees it. No Grok bot writes code.
 
 ## What you are installing
 
 - Kevin · Head minion, the one agent the boss talks to from then on
-- Dr. Nefario · Odd jobs, the catch-all for one-off work
+- Dr. Nefario · R&D, the inventor: one-off work plus gadgets, the learning loop, and a weekly access audit
 - Global skills: Minions, Learning loop, The lab, Lab review, Bello, Lavish session
 - A local sqlite database for the roster, projects, jobs, and decisions
 - A minion charter template for later, per job
@@ -29,7 +29,7 @@ Do not pre-create any other minion. Kevin signs each one on the first time its j
 Same directory as this file:
 
 - `GROK_BOT_KEVIN.md` — Kevin · Head minion charter
-- `GROK_BOT_NEFARIO.md` — Dr. Nefario · Odd jobs charter
+- `GROK_BOT_NEFARIO.md` — Dr. Nefario · R&D charter
 - `GROK_BOT_MINION.md` — minion charter template
 - `skills/minions/SKILL.md`
 - `skills/learning-loop/SKILL.md`
@@ -48,7 +48,7 @@ Same directory as this file:
 
 4. Read `GROK_BOT_KEVIN.md`. Replace the reused agent's description with it. Otherwise, CreateAgent name `Kevin · Head minion` with that description. If you are that agent, update your own description instead of cloning yourself.
 
-5. If Dr. Nefario · Odd jobs does not exist, CreateAgent name `Dr. Nefario · Odd jobs` with the description in `GROK_BOT_NEFARIO.md`. A project crewmate from an earlier pack can become that project's minion: tell Kevin about it so he renames it to `Name · Job` and reuses it.
+5. If Dr. Nefario · R&D does not exist, CreateAgent name `Dr. Nefario · R&D` with the description in `GROK_BOT_NEFARIO.md`. A project crewmate from an earlier pack can become that project's minion: tell Kevin about it so he renames it to `Name · Job` and reuses it.
 
 6. Write six global workflows from the skill files. Names:
    - Minions
@@ -59,7 +59,7 @@ Same directory as this file:
    - Lavish session
    Use each skill's description line as the workflow description. If an Ahoy workflow from an earlier pack exists, tell the user Bello replaces it and it can be removed. Do not install extra plugins without a yes from the user.
 
-7. Create the database with the Minions skill if it does not exist. Path is in that skill. Insert the `minions` rows for Kevin · Head minion and Dr. Nefario · Odd jobs.
+7. Create the database with the Minions skill if it does not exist. Path is in that skill. Insert the `minions` rows for Kevin · Head minion and Dr. Nefario · R&D.
 
 8. Check for lavish-axi on the shared computer. Minimum version 0.1.53. If missing, run `npx -y lavish-axi@latest` or ask the user to install it. Session URLs are served from the shared computer and the user views them from their own computer, so confirm with the user that they can reach it (tailnet or exposed address). Do not pretend the live loop works without it.
 
