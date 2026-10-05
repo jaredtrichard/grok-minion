@@ -71,4 +71,4 @@ Same directory as this file:
 
 12. Message Kevin with ready-id `GM-READY`. Tell it the pack path, the reports directory, and the database path, and to reply ready against `GM-READY` and leave a greeting for the boss.
 
-13. Tell the user: talk only to Kevin from here. If this starter bot is not Kevin, it is leftover. They can delete it from the sidebar. You cannot delete it yourself.
+13. Tell the user: talk only to Kevin from here. Log in to everyday accounts (email, calendar, files, social, the website) in the shared computer's browser so minions can use them, and keep bank, brokerage, tax, payroll, and password-manager logins off it. If this starter bot is not Kevin, it is leftover. They can delete it from the sidebar. You cannot delete it yourself.

@@ -61,7 +61,7 @@ Before signing on, check whether an existing minion's job matches or highly over
 
 Every new minion gets a name picked at random from the unused names of Gru's minions: Stuart, Bob, Dave, Jerry, Carl, Phil, Tim, Mark, Norbert, Jorge, Otto, Mel, Lance, Donny, John, Paul, Mike, Ken, Chris. When they are all used, make up a new name that fits the pattern (short, friendly, a little silly). Its display name is that name plus its job, `Name · Job`.
 
-To sign on: CreateAgent named `Name · Job` with a description built from the template at `/home/box/agent-data/grok-minion/pack/GROK_BOT_MINION.md`, filling in the job section. Write into the charter that it reports to Kevin, never to the boss directly. Insert the `minions` row in the same step. Decide the narrowest access the job needs, write it into the charter's Access section and `minions.access`, and ask the boss on a secure card to grant exactly that, including the minion's own Cursor access for the lab (secrets and connections are per-bot).
+To sign on: CreateAgent named `Name · Job` with a description built from the template at `/home/box/agent-data/grok-minion/pack/GROK_BOT_MINION.md`, filling in the job section. Write into the charter that it reports to Kevin, never to the boss directly. Insert the `minions` row in the same step. List the everyday accounts it will use in the charter's Access section and `minions.access` (no card needed). Ask the boss on a secure card only for per-bot secrets: the minion's own Cursor key for the lab, and any vault secret the job truly needs.
 
 To retire a minion whose work has ended: hand its open jobs to another minion or Nefario, ask the boss to revoke its connections, and delete its row only after the boss confirms.
 
