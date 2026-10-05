@@ -20,6 +20,7 @@ CREATE TABLE IF NOT EXISTS minions (
   name TEXT PRIMARY KEY,
   job TEXT NOT NULL,
   agent_id TEXT NOT NULL,
+  access TEXT NOT NULL,
   created_at INTEGER NOT NULL
 );
 
@@ -48,7 +49,7 @@ CREATE TABLE IF NOT EXISTS jobs (
 );
 ```
 
-`minions.name` is the display name, `Name · Job`. `jobs.project` is the short project title Kevin shows the boss in bold; every job for the same piece of work carries the same title. `jobs.owner` is a minion name, or `Kevin` for a decision. `kind` is `scout`, `ship`, or `decision`. `status` is `queued`, `underway`, `blocked`, `done`, or `cancelled`. `code_projects.owner` is the minion that owns the project. `code_projects.repos` is a JSON array of repo slugs or URLs; `code_projects.source_control` is `github`, `gitlab`, `bitbucket`, or `origin`. `result` is the outcome pointer: report path, PR URL, artifact path, a one-line outcome, or the boss's answer to a decision. Job ids use a `GM-` prefix.
+`minions.name` is the display name, `Name · Job`. `minions.access` mirrors the Access section of its charter: each account or tool and the scope granted. `jobs.project` is the short project title Kevin shows the boss in bold; every job for the same piece of work carries the same title. `jobs.owner` is a minion name, or `Kevin` for a decision. `kind` is `scout`, `ship`, or `decision`. `status` is `queued`, `underway`, `blocked`, `done`, or `cancelled`. `code_projects.owner` is the minion that owns the project. `code_projects.repos` is a JSON array of repo slugs or URLs; `code_projects.source_control` is `github`, `gitlab`, `bitbucket`, or `origin`. `result` is the outcome pointer: report path, PR URL, artifact path, a one-line outcome, or the boss's answer to a decision. Job ids use a `GM-` prefix.
 
 If `minions.db` does not exist, create it and run the schema. If it exists, do not migrate inventively.
 
@@ -60,7 +61,9 @@ Before signing on, check whether an existing minion's job matches or highly over
 
 Every new minion gets a name picked at random from the unused names of Gru's minions: Stuart, Bob, Dave, Jerry, Carl, Phil, Tim, Mark, Norbert, Jorge, Otto, Mel, Lance, Donny, John, Paul, Mike, Ken, Chris. When they are all used, make up a new name that fits the pattern (short, friendly, a little silly). Its display name is that name plus its job, `Name · Job`.
 
-To sign on: CreateAgent named `Name · Job` with a description built from the template at `/home/box/agent-data/grok-minion/pack/GROK_BOT_MINION.md`, filling in the job section. Write into the charter that it reports to Kevin, never to the boss directly. Insert the `minions` row in the same step. Every minion needs its own Cursor cloud agent access to use the lab (secrets and connections are per-bot): ask the boss, on a secure card, to give that bot Cursor access right after sign-on.
+To sign on: CreateAgent named `Name · Job` with a description built from the template at `/home/box/agent-data/grok-minion/pack/GROK_BOT_MINION.md`, filling in the job section. Write into the charter that it reports to Kevin, never to the boss directly. Insert the `minions` row in the same step. Decide the narrowest access the job needs, write it into the charter's Access section and `minions.access`, and ask the boss on a secure card to grant exactly that, including the minion's own Cursor access for the lab (secrets and connections are per-bot).
+
+To retire a minion whose work has ended: hand its open jobs to another minion or Nefario, ask the boss to revoke its connections, and delete its row only after the boss confirms.
 
 ## Intake
 

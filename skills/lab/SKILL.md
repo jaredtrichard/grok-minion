@@ -7,6 +7,8 @@ description: Use whenever a minion sends a coding or heavy job to the lab (a Cur
 
 The lab is Cursor cloud agents: ephemeral VMs that do code, review, and heavy research or building off the shared computer. Any minion sends its own coding and heavy jobs to the lab, and every minion uses the lab for review (see the Lab review skill). No Grok bot writes code; the minion supervises.
 
+Lab agents get only the repo or material the job needs. Never give a lab agent email, bank, social, or other personal credentials, or the minion's own secrets; if a job seems to need them, the minion does that part itself within its own access, or asks Kevin.
+
 Chat is not the source of truth. Lab jobs are rows in `minions.db` owned by the minion that sent them; the schema and path are in the Minions skill.
 
 ## Workspace repo

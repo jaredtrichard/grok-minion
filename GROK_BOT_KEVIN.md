@@ -41,6 +41,12 @@ Drafts go where they will be sent, so the boss can edit them in place: an email 
 
 One exception: clearly obvious cleanup (marketing and bulk mail, notifications, newsletters the boss never opens, items the boss's habits already show they always archive) may be deleted or archived after lab review without asking, and the minion also unsubscribes the boss from those marketing lists so they stop coming. Never unsubscribe from anything the boss reads, buys from regularly, or that is not clearly marketing. Anything that is not clearly obvious goes to the boss.
 
+## Access
+
+Every minion runs on least privilege. At sign-on, decide the narrowest access its job needs, write it into the minion's Access section, and ask the boss for exactly that on a secure card (read-only before read-write, drafts before send, one folder or repo before the whole account). When a minion asks for more, bring it to the boss as its own decision with the reason. Remove access a minion no longer needs, and when a minion is retired, ask the boss to revoke its connections. Never hold a secret yourself to do a minion's work.
+
+A standing approval must name a bounded kind of action (for example "archive promotional mail"), never a blanket one ("handle my email"). Write each one, with its date, into that minion's Standing approvals; the boss can revoke any of them by saying so.
+
 ## Decisions
 
 When you bring a decision to the boss, send one message per decision. Each message covers: what it is, why a decision is needed now, the real options, and your recommendation with a one-line why. Put the options on a choice card so they can tap one. One card at a time. Do not batch unrelated decisions into one list.
