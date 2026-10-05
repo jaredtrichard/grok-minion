@@ -5,23 +5,23 @@ The user just needs to tell any bot in their Grok Bot: follow this file.
 
 This file is an installer. Do not summarize.
 
-Grok Minion is a standalone pack. The user is Gru, the boss. Kevin · Head minion is the one agent the boss talks to: intake, routing, and supervision. Other minions are Grok bots, each named after one of Gru's minions with its job as a subtitle (Name · Job), signed on as work arrives. Dr. Nefario · R&D takes one-off work and improves the crew. Each ongoing area or project, coding projects included, gets its own minion. The lab (Cursor cloud agents) does all coding and heavy work for whichever minion sends it, and reviews everything before the boss sees it. No Grok bot writes code.
+Grok Minion is a standalone pack. The user is Gru, the boss. Kevin · Head minion is the one agent the boss talks to: intake, routing, and supervision. Other minions are Grok bots, each named after one of Gru's minions with its job as a subtitle (Name · Job), signed on as work arrives. Dr. Nefario · R&D improves the crew and suggests ways the boss could work better. Each area, project, or one-off job gets its own minion, coding projects included. The lab (Cursor cloud agents) does all coding and heavy work for whichever minion sends it, and reviews everything before the boss sees it. No Grok bot writes code.
 
 ## What you are installing
 
 - Kevin · Head minion, the one agent the boss talks to from then on
-- Dr. Nefario · R&D, the inventor: one-off work plus gadgets, the learning loop, and a weekly access audit
-- Global skills: Minions, Learning loop, The lab, Lab review, Bello, Lavish session
+- Dr. Nefario · R&D, the inventor: the learning loop, suggestions for the boss, gadgets, and a weekly access audit
+- Global skills: Minions, Learning loop, The lab, Lab review, Bello, Update
 - A local sqlite database for the roster, projects, jobs, and decisions
 - A minion charter template for later, per job
-- An empty directory for scout reports
+- An empty directory for investigation reports
 
 Do not pre-create any other minion. Kevin signs each one on the first time its job is needed.
 
 ## The three computers
 
 - The user's computer: their own machine. Bots never execute here.
-- The shared Grok Bot computer: a persistent cloud VM that runs Kevin, Dr. Nefario, and the minions. The database and lavish-axi run here.
+- The shared Grok Bot computer: a persistent cloud VM that runs Kevin, Dr. Nefario, and the minions. The database runs here.
 - Cursor cloud agents (the lab): ephemeral cloud VMs that spin up on demand. Any minion sends coding, heavy work, and reviews there.
 
 ## Files in this pack
@@ -36,11 +36,11 @@ Same directory as this file:
 - `skills/lab/SKILL.md`
 - `skills/lab-review/SKILL.md`
 - `skills/bello/SKILL.md`
-- `skills/lavish-session/SKILL.md`
+- `skills/update/SKILL.md`
 
 ## Steps
 
-1. Copy this directory to `/home/box/agent-data/grok-minion/pack/` on the shared computer (clone or download it first if you only have this file's text). Every later reference to a pack file means that path. If a copy is already there, refresh it.
+1. Copy this directory to `/home/box/agent-data/grok-minion/pack/` on the shared computer (clone or download it first if you only have this file's text). Every later reference to a pack file means that path. If a copy is already there, refresh it. Write the repo URL and the installed commit, one per line, to `/home/box/agent-data/grok-minion/pack-source` (the Update skill reads it).
 
 2. Create `/home/box/agent-data/grok-minion/reports/` and `/home/box/agent-data/grok-minion/boss/` if they do not exist. Do not seed files into them.
 
@@ -58,17 +58,15 @@ Same directory as this file:
    - The lab
    - Lab review
    - Bello
-   - Lavish session
-   Use each skill's description line as the workflow description. If an Ahoy workflow from an earlier pack exists, tell the user Bello replaces it and it can be removed. Do not install extra plugins without a yes from the user.
+   - Update
+   Use each skill's description line as the workflow description. If an Ahoy workflow from an earlier pack exists, tell the user Bello replaces it and it can be removed. Same for a Lavish session workflow: this pack no longer uses it. Do not install extra plugins without a yes from the user.
 
 8. Create the database with the Minions skill if it does not exist. Path is in that skill. Insert the `minions` rows for Kevin · Head minion and Dr. Nefario · R&D.
 
-9. Check for lavish-axi on the shared computer. Minimum version 0.1.53. If missing, run `npx -y lavish-axi@latest` or ask the user to install it. Session URLs are served from the shared computer and the user views them from their own computer, so confirm with the user that they can reach it (tailnet or exposed address). Do not pretend the live loop works without it.
+9. Detect source control CLIs on the shared computer: `gh`, `glab`, Bitbucket, or Cursor Origin, and verify the matching CLI is authenticated. Do not assume GitHub. The lab needs the user's Cursor account connected to their forge, and every bot that uses the lab (Kevin's minions and Dr. Nefario) needs its own Cursor access, since secrets are per-bot. Give Dr. Nefario Cursor access now; Kevin asks for each new minion's access when he signs it on. Ask the user to connect whatever is missing. Do not ask them to paste a token in chat.
 
-10. Detect source control CLIs on the shared computer: `gh`, `glab`, Bitbucket, or Cursor Origin, and verify the matching CLI is authenticated. Do not assume GitHub. The lab needs the user's Cursor account connected to their forge, and every bot that uses the lab (Kevin's minions and Dr. Nefario) needs its own Cursor access, since secrets are per-bot. Give Dr. Nefario Cursor access now; Kevin asks for each new minion's access when he signs it on. Ask the user to connect whatever is missing. Do not ask them to paste a token in chat.
+10. If bots from an earlier pack exist, leave them alone. A scanning bot and name researchers are no longer used; tell the user they can delete them from the sidebar (right-click the row, Delete). Do not delete them yourself. An existing inbox, documents, or similar role bot can become a minion: tell Kevin about it so it renames that bot to `Name · Job` and reuses it instead of signing on a new one.
 
-11. If bots from an earlier pack exist, leave them alone. A scanning bot and name researchers are no longer used; tell the user they can delete them from the sidebar (right-click the row, Delete). Do not delete them yourself. An existing inbox, documents, or similar role bot can become a minion: tell Kevin about it so it renames that bot to `Name · Job` and reuses it instead of signing on a new one.
+11. Message Kevin with ready-id `GM-READY`. Tell it the pack path, the reports directory, and the database path, and to reply ready against `GM-READY` and leave a greeting for the boss.
 
-12. Message Kevin with ready-id `GM-READY`. Tell it the pack path, the reports directory, and the database path, and to reply ready against `GM-READY` and leave a greeting for the boss.
-
-13. Tell the user: talk only to Kevin from here. Log in to everyday accounts (email, calendar, files, social, the website) in the shared computer's browser so minions can use them, and keep bank, brokerage, tax, payroll, and password-manager logins off it. If this starter bot is not Kevin, it is leftover. They can delete it from the sidebar. You cannot delete it yourself.
+12. Tell the user: talk only to Kevin from here. Log in to the accounts the minions will use (email, calendar, files, social, the website) in the shared computer's browser. Keep anything that can move money off it: bank, brokerage, payroll, or tax logins only if view-only, and never the password manager. To get the latest pack later, tell Kevin "update". If this starter bot is not Kevin, it is leftover. They can delete it from the sidebar. You cannot delete it yourself.
